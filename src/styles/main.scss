@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+@import 'colors';
+@import 'block';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    min-width: 300px;
+    margin: 0;
+}
+
+.container {
+    overflow: auto;
+    background: $secondary;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: $primary;
+    text-transform: uppercase;
+}

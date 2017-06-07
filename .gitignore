@@ -1,0 +1,7 @@
+.vscode
+.DS_STORE
+.idea
+*.orig
+node_modules/
+app/scripts/
+app/styles/

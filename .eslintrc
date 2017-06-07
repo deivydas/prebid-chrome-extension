@@ -1,0 +1,158 @@
+{
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "max-len": [
+      "warn",
+      80,
+      {
+        "ignoreUrls": true
+      }
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 1
+      }
+    ],
+    "brace-style": [
+      "error",
+      "1tbs"
+    ],
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
+    "dot-location": [
+      "error",
+      "property"
+    ],
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "prefer-const": [
+      "error"
+    ],
+    "no-bitwise": [
+      "error"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "never"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    "space-unary-ops": [
+      "error",
+      {
+        "words": true,
+        "nonwords": false
+      }
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "after": true
+      }
+    ],
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ],
+    "space-in-parens": [
+      "error",
+      "never"
+    ],
+    "spaced-comment": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "error"
+        ]
+      }
+    ],
+    "no-eval": [
+      "error", 
+      {
+        "allowIndirect": true
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      { 
+        "allowShortCircuit": true, 
+        "allowTernary": true 
+      }
+    ],
+    "eqeqeq": [
+      "error", "smart"
+    ],
+    "no-extend-native": [
+      "error"
+    ],
+    "func-style": [
+      "error", 
+      "expression", 
+      { 
+        "allowArrowFunctions": true 
+      }
+    ],
+    "prefer-destructuring": [
+      "warn", 
+      {
+        "array": true,
+        "object": true
+      }, 
+      {
+        "enforceForRenamedProperties": false
+      }
+    ]
+  }
+}

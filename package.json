@@ -1,0 +1,33 @@
+{
+  "name": "prebid-chrome-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.rp-core.com/dsabaras/prebid-chrome-extension.git"
+  },
+  "author": "Deivydas Šabaras",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-loader": "*",
+    "babel-eslint": "*",
+    "babel-loader": "*",
+    "babel-preset-es2015": "*",
+    "babel-core": "*",
+    "css-loader": "*",
+    "style-loader": "*",
+    "sass-loader": "*",
+    "node-sass": "*",
+    "webpack": "*",
+    "extract-text-webpack-plugin": "*"
+  },
+  "dependencies": {
+    "mithril": "*"
+  }
+}
