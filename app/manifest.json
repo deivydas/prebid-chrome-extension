@@ -1,10 +1,8 @@
 {
   "manifest_version": 2,
-
   "name": "Prebid config creator",
   "description": "This extension helps you easily create a prebid config for all DFP placements that are on your website",
   "version": "1.0",
-
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "index.html"
@@ -12,7 +10,6 @@
   "web_accessible_resources": [
     "scripts/inject.js"
   ],
-
   "content_scripts": [
     {
       "matches": ["*://*/*"],
@@ -20,7 +17,6 @@
       "run_at": "document_end"
     }
   ],
-
   "permissions": [
     "tabs",
     "activeTab",

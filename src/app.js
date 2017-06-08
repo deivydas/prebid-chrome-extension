@@ -1,14 +1,18 @@
 import m from 'mithril';
 import base from './pages/base';
+import placements from './pages/placements';
 
-require('./app.scss');
+require('./styles/main.scss');
 
 const routes = () => {
   m.route.prefix('#');
   m.route(document.body, '/', {
     '/': {
       view: () => {
-        return m(base);
+        return m(base, {
+          title: 'Placements',
+          container: placements,
+        });
       },
     },
   });

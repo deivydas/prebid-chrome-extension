@@ -1,0 +1,12 @@
+@import 'colors';
+
+.placements {
+    .placement {
+        margin: 5px 0;
+        float: left;
+        width: 100%;
+        input, .label {
+            float: left;
+        }
+    }
+}

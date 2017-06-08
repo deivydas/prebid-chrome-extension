@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100');
 @import 'colors';
-@import 'block';
+@import 'menu';
+@import 'placements';
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -14,10 +15,20 @@ body {
     overflow: auto;
     background: $secondary;
     width: 90%;
-    margin: 20px auto;
+    margin: 50px auto;
 }
 
-h1, h2 {
-    color: $primary;
-    text-transform: uppercase;
+.info {
+    margin-bottom: 10px;
+}
+
+.button {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    float: right;
+    width: 40px;
+    background: $primary;
+    color: $secondary;
 }
