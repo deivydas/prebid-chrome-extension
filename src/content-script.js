@@ -1,16 +1,17 @@
-/* global chrome, googletag */ 
-console.log('gera diena');
-
-let slots = [];
-const getSlots = () => {
-  if (googletag) slots = googletag.pubads().getSlots();
-  console.log(googletag);
+/* global chrome */
+var script = document.createElement('script');
+script.src = chrome.extension.getURL('scripts/inject.js');
+script.onload = function () {
+  script.remove();
 };
+(document.head || document.documentElement).appendChild(script);
 
-getSlots();
+var slots;
+window.addEventListener('message', function (event) {
+  if (event.data && event.data.prebid)
+    slots = event.data.prebid;
+});
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(message);
-  console.log(slots);
   sendResponse(slots);
 });

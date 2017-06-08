@@ -6,6 +6,7 @@ body {
     font-family: 'Roboto', sans-serif;
     width: 100%;
     min-width: 300px;
+    min-height: 300px;
     margin: 0;
 }
 
@@ -13,7 +14,7 @@ body {
     overflow: auto;
     background: $secondary;
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 h1, h2 {

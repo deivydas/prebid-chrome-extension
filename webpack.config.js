@@ -34,6 +34,7 @@ module.exports = {
   entry: {
     'app/scripts/app':'./src/app.js',
     'app/scripts/content-script':'./src/content-script.js',
+    'app/scripts/inject':'./src/inject.js',
   },
   output: {
     filename: './[name].js',

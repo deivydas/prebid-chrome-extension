@@ -1,57 +1,53 @@
 /* global chrome */ 
 import m from 'mithril';
-import constants from '../constants';
+// import constants from '../constants';
 
 var base = {
   oninit: (vnode) => {
     const {state} = vnode;
-    state.tabId = 'default';
+    state.sent = false;
 
-    state.displaySlots = (slots) => {
-      console.log(slots);
-    };
-
-    state.sendMessage = (message) => {
-      chrome.tabs.executeScript(state.tabId, {code: 'const getSlots = () => {  if (googletag) slots = googletag.pubads().getSlots();  console.log(googletag);}; getSlots();'}, function (response) {
-        console.log(response);
-        // chrome.tabs.executeScript(null, {file: "retrieveValue.js"}, function(ret) {
-        //     for (var i = 0; i < ret.length; i++) {
-        //         console.log(ret[i]); //prints out each returned element in the array
-        //     }
-        // });
-      });
-      console.log(message);
-      // chrome.tabs.sendMessage(state.tabId, message);
-    };
-
-    state.setCurrentTab = (tabs) => {
-      state.tabId = tabs[0].id;
+    state.displaySlots = (adUnits) => {
+      state.adUnits = adUnits;
+      state.sent = true;
       m.redraw();
     };
 
-    state.getCurrentTab = () => {
-      chrome.tabs.query({active: true}, state.setCurrentTab);
+    state.sendMessage = () => {
+      chrome.tabs.query({active: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, '', state.displaySlots);
+      });
     };
+
   },
   view: (vnode) => {
     const {state} = vnode;
     const build = () => {
-      state.getCurrentTab();
+      if (!state.sent) {
+        state.sendMessage();
+        return m('.loading', 'Loading...');
+      }
+
+      return state.adUnits 
+        ? m('.adunits', state.adUnits.map((adUnit) => 
+            (m('.adunit', adUnit.code))
+          ))
+        : m('.nothing', 'Ad Units not found');
     };
 
     return m('.app', [       
       m('.container', [
         build(),
-        m('.blocks', constants.bidders.map((bidder) => 
-          m('.block', {
-            onclick: () => {
-              state.sendMessage(bidder.name);
-            },
-          },[
-            m('h2', bidder.name),
-            m('.text', bidder.name),
-          ])
-        )),
+        // m('.blocks', constants.bidders.map((bidder) => 
+        //   m('.block', {
+        //     onclick: () => {
+        //       state.sendMessage(bidder.name);
+        //     },
+        //   },[
+        //     m('h2', bidder.name),
+        //     m('.text', bidder.name),
+        //   ])
+        // )),
       ]),
     ]);
   },
