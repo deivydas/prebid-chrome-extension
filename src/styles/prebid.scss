@@ -1,0 +1,62 @@
+@import 'colors';
+
+.prebid {
+
+    h3 {
+        margin: 10px 0;
+    }
+
+    .biddingMode {
+        width: 100%;
+        display: flex;
+        div {
+            cursor: pointer;
+            padding: 5px;
+            width: 48%;
+            text-align: center;
+            border: 1px solid $primary;
+        }
+        .active {
+            color: $secondary;
+            background: $primary;
+        }
+    }
+
+    .block {
+        display: flex;
+        width: 100%;
+
+        .label {
+            padding: 3px 0;
+        }
+
+        input {
+            margin: 0 3px;
+            width: 50px;
+            text-align: right;
+        }
+    }
+
+    .granularities {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        .granularity {
+            width: 33%;
+            display: flex;
+            .label {
+                padding: 2px;
+            }
+        }
+    }
+
+    .customGranularity {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        input, button {
+            margin: 2px;
+            width: 21%;
+        }
+    }
+}

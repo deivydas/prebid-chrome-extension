@@ -1,10 +1,11 @@
 /* global chrome */ 
 import m from 'mithril';
 
-var base = {
+var placements = {
   oninit: (vnode) => {
     const {state} = vnode;
     state.sent = false;
+    state.selected = [];
 
     state.displayPlacements = (placements) => {
       state.placements = placements;
@@ -29,15 +30,25 @@ var base = {
 
       return state.placements 
         ? m('.placements', [
-          state.placements.map((placement) => 
-            m('.placement', [
+          state.placements.map((placement, index) => 
+            m('.placement', {
+              onclick: () => {
+                const position = state.selected.indexOf(index);
+                position > -1 ? state.selected.splice(position, 1) : state.selected.push(index);
+              },
+            },[
               m('input', {
                 type: 'checkbox',
+                checked: state.selected.indexOf(index) > -1,
               }),
               m('.label', placement.code),
             ])
           ),
-          m('.button', 'Next'),
+          m('.button',{
+            onclick: () => {
+              m.route.set('/prebid', state.placements.filter((value, index) => state.selected.indexOf(index) > -1));
+            },
+          }, 'Next'),
         ])
         : m('.nothing', 'Placements not found on active website.');
     };
@@ -49,4 +60,4 @@ var base = {
   },
 };
 
-export default base;
+export default placements;
