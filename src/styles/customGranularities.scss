@@ -1,0 +1,32 @@
+@import 'colors';
+
+.customGranularities {
+    width: 100%;
+    float: left;
+    margin: 5px 0;
+
+    .button {
+        background: $secondary;
+        color: $primary;
+        border: 1px solid $primary;
+        font-size: 24px;
+        padding: 3px 9px;
+    }
+
+    .customGranularity {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        margin: 5px 0;
+        input, button {
+            margin: 3.5px;
+            width: 21%;
+        }
+
+        .button {
+            margin-left: 0.5px;
+            border: 1px solid $third;
+            color: $third;
+        }
+    }
+}

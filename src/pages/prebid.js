@@ -49,13 +49,12 @@ var prebid = {
               step: 0.01,
             }),
           m(
-          'button', {
-            type: 'button',
+          '.button', {
             onclick: () => {
               state.config.granularities.splice(i, 1);
             },
           },
-          'Remove'
+          '-'
         ),
         ]));
     };
@@ -68,7 +67,7 @@ var prebid = {
             onclick: () => {
               state.config.granularities.push({});
             },
-          }, 'Add'),
+          }, '+'),
         ]);
       }
     };
@@ -122,7 +121,8 @@ var prebid = {
       ]),
       m('.button',{
         onclick: () => {
-          m.route.set('/bidders', state.config);
+          // m.route.set('/bidders', state.config);
+          m.route.set('/output', state.config);
         },
       }, 'Next'),
     ]);

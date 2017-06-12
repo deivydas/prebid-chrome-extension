@@ -3,6 +3,8 @@
 @import 'menu';
 @import 'placements';
 @import 'prebid';
+@import 'customGranularities';
+@import './../../node_modules/highlight.js/styles/vs2015';
 
 html, body {
     font-family: 'Roboto', sans-serif;
@@ -32,4 +34,11 @@ html, body {
     width: 40px;
     background: $primary;
     color: $secondary;
+}
+
+textarea {
+    resize: none;
+    height: 400px;
+    width: 97%;
+    border: 1px solid $primary;
 }

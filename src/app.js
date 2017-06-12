@@ -2,6 +2,7 @@ import m from 'mithril';
 import base from './pages/base';
 import placements from './pages/placements';
 import prebid from './pages/prebid';
+import output from './pages/output';
 
 require('./styles/main.scss');
 
@@ -21,6 +22,14 @@ const routes = () => {
         return m(base, {
           title: 'Prebid Config',
           container: prebid,
+        });
+      },
+    },
+    '/output': {
+      view: () => {
+        return m(base, {
+          title: 'Generated Prebid Config',
+          container: output,
         });
       },
     },

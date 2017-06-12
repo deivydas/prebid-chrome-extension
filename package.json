@@ -25,7 +25,8 @@
     "sass-loader": "*",
     "node-sass": "*",
     "webpack": "*",
-    "extract-text-webpack-plugin": "*"
+    "extract-text-webpack-plugin": "*",
+    "highlight.js": "*"
   },
   "dependencies": {
     "mithril": "*"
