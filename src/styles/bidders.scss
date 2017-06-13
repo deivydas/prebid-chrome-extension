@@ -1,0 +1,45 @@
+@import 'colors';
+
+.bidders {
+    width: 100%;
+    max-height: 100px;
+    overflow: scroll;
+    .bidder {
+        cursor: pointer;
+        display: flex;
+        .label {
+            padding: 2px;
+        }
+    }
+}
+
+.selectedPlacements {
+
+    .selectedPlacement {
+        border: 1px solid $primary;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .placement {
+        font-size: 14px;
+        color: $primary;
+    }
+
+    .bidder {
+        display: flex;
+        width: 100%;
+        margin: 2px 0;
+        
+        .label {
+            width: 100px;
+            padding: 3px 0;
+        }
+
+        input {
+            max-width: 15%;
+            min-width: 75px;
+            margin: 0 2px;
+        }
+    }
+}

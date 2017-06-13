@@ -121,7 +121,6 @@ var prebid = {
       ]),
       m('.button',{
         onclick: () => {
-          // m.route.set('/bidders', state.config);
           m.route.set('/output', state.config);
         },
       }, 'Next'),

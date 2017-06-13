@@ -46,7 +46,9 @@ var placements = {
           ),
           m('.button',{
             onclick: () => {
-              m.route.set('/prebid', state.placements.filter((value, index) => state.selected.indexOf(index) > -1));
+              m.route.set('/bidders', {
+                placements: state.placements.filter((value, index) => state.selected.indexOf(index) > -1),
+              });
             },
           }, 'Next'),
         ])

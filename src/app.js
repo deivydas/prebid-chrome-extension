@@ -1,6 +1,7 @@
 import m from 'mithril';
 import base from './pages/base';
 import placements from './pages/placements';
+import bidders from './pages/bidders';
 import prebid from './pages/prebid';
 import output from './pages/output';
 
@@ -14,6 +15,14 @@ const routes = () => {
         return m(base, {
           title: 'Placements',
           container: placements,
+        });
+      },
+    },
+    '/bidders': {
+      view: () => {
+        return m(base, {
+          title: 'Bidders',
+          container: bidders,
         });
       },
     },
