@@ -10,7 +10,7 @@ const constants = {
     'code': 'aardvark',
     'parameters': [
       'ai',
-      'ai',
+      'sc',
     ],
   },{
     'name': 'Adblade',
