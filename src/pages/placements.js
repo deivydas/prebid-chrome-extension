@@ -23,12 +23,12 @@ var placements = {
   view: (vnode) => {
     const {state} = vnode;
     const build = () => {
-      if (!state.sent) {
+      if (!state.placements) {
         state.sendMessage();
         return m('.loading', 'Loading...');
       }
 
-      return state.placements 
+      return state.placements.length > 0 
         ? m('.placements', [
           state.placements.map((placement, index) => 
             m('.placement', {

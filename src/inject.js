@@ -10,5 +10,9 @@ window.onload = () => {
     window.postMessage({
       prebid: adunits,
     },'*');
+  } else {
+    window.postMessage({
+      prebid: [],
+    },'*');
   }
 };
