@@ -48,14 +48,11 @@ var prebid = {
               placeholder: 'Increment',
               step: 0.01,
             }),
-          m(
-          '.button', {
+          m('.button', {
             onclick: () => {
               state.config.granularities.splice(i, 1);
             },
-          },
-          '-'
-        ),
+          },'-'),
         ]));
     };
 
@@ -103,19 +100,19 @@ var prebid = {
         ]),
         m('h3', 'Select granularity'),
         m('.granularities', state.granularities.map((granularity) => 
-            m('.granularity', [
-              m('input', {
-                type: 'radio',
-                name: 'granularity',
-                value: granularity,
-                checked: state.config.granularity === granularity,
-                onchange: (e) => {
-                  state.config.granularities = [];
-                  state.config.granularity = e.target.value;
-                },
-              }),
-              m('.label', granularity),
-            ])
+          m('.granularity', [
+            m('input', {
+              type: 'radio',
+              name: 'granularity',
+              value: granularity,
+              checked: state.config.granularity === granularity,
+              onchange: (e) => {
+                state.config.granularities = [];
+                state.config.granularity = e.target.value;
+              },
+            }),
+            m('.label', granularity),
+          ])
         )),
         buildCustomGranularities(),
       ]),

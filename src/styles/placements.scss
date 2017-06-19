@@ -4,10 +4,10 @@
     .placement {
         cursor: pointer;
         margin: 5px 0;
-        float: left;
+        display: flex;
         width: 100%;
-        input, .label {
-            float: left;
+        .label {
+            max-width: 90%;
         }
     }
 }
