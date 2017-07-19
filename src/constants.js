@@ -1,4 +1,6 @@
 const constants = {
+  granularities: ['low','medium','high','auto','dense','custom'],
+  libraryUrl: '//acdn.adnxs.com/prebid/not-for-prod/prebid.js',
   bidders: [{
     'name': '152Media',
     'code': 'oftmedia',

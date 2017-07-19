@@ -1,15 +1,18 @@
 import m from 'mithril';
+import constants from '../constants';
 
 var prebid = {
   oninit: (vnode) => {
     const {state} = vnode;
-    state.granularities = ['low','medium','high','auto','dense','custom'];
+    state.granularities = constants.granularities;
     state.config = {
       placements: m.route.param(),
-      timeout: 1000,
+      timeout: 2000,
       granularity: 'medium',
       granularities: [],
       sendAllBids: true,
+      libraryUrl: constants.libraryUrl,
+      async: true,
     };
   },
   view: (vnode) => {
@@ -83,8 +86,33 @@ var prebid = {
           }),
           m('.label', 'ms'),
         ]),
+        m('h3', 'Library'),
+        m('.tab', [
+          m('div',{
+            class: state.config.async ? 'active' : null,
+            onclick: () => {
+              state.config.async = true;
+            },
+          }, 'Async'),
+          m('div',{
+            class: !state.config.async ? 'active' : null,
+            onclick: () => {
+              state.config.async = false;
+            },
+          }, 'Sync'),
+        ]),
+        m('.block', [
+          m('.label', 'URL:'),
+          m('input', {
+            class: 'long',
+            value: state.config.libraryUrl,
+            onchange: (e) => {
+              state.config.libraryUrl = e.target.value;
+            },
+          }),
+        ]),
         m('h3', 'Select bidding mode'),
-        m('.biddingMode', [
+        m('.tab', [
           m('div',{
             class: state.config.sendAllBids ? 'active' : null,
             onclick: () => {

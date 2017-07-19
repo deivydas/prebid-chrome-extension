@@ -6,7 +6,7 @@
         margin: 10px 0;
     }
 
-    .biddingMode {
+    .tab {
         width: 100%;
         display: flex;
         div {
@@ -23,6 +23,7 @@
     }
 
     .block {
+        margin: 10px 0;
         display: flex;
         width: 100%;
 
@@ -34,6 +35,10 @@
             margin: 0 3px;
             width: 50px;
             text-align: right;
+        }
+
+        .long {
+            width: 100%;
         }
     }
 
