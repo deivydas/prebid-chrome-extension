@@ -60,15 +60,14 @@ var bidders = {
         }, 'Static'),
       ]),
       m('h3', 'Bidders'),
-      m('.bidders', constants.bidders.map((bidder, index) => 
+      m('.bidders', constants.bidders.map((bidder) => 
         m('.bidder', {
           onclick: () => {
-            const position = state.selected.indexOf(index);
-            position > -1 ? state.selected.splice(position, 1) : state.selected.push(index);
-            const selectedBidders = constants.bidders.filter((value, index) => state.selected.indexOf(index) > -1);
-            if (selectedBidders.length > 0) {
+            const position = state.selected.indexOf(bidder);
+            position > -1 ? state.selected.splice(position, 1) : state.selected.push(bidder);
+            if (state.selected.length > 0) {
               state.placements.forEach((placement) =>
-                placement['bids'] = selectedBidders.map((bidder) =>({
+                placement['bids'] = state.selected.map((bidder) =>({
                   bidder: bidder.code,
                   params: state.getParameters(bidder.parameters),
                 }))
@@ -78,7 +77,7 @@ var bidders = {
         },[
           m('input', {
             type: 'checkbox',
-            checked: state.selected.indexOf(index) > -1,
+            checked: state.selected.indexOf(bidder) > -1,
           }),
           m('.label', bidder.name),
         ])
