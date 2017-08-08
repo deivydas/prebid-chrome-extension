@@ -1,9 +1,9 @@
-#Prebid Config Generator
+# Prebid Config Generator
 
 The extension can be installed using this link:
 [install](https://chrome.google.com/webstore/detail/prebid-config-creator/abgpoajfblkkjjhbdebjcfjglcobalma)
 
-###Development
+### Development
 
 To install all the required packages use the following command:
 
