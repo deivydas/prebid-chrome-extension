@@ -2,28 +2,11 @@
 
 .prebid {
 
-    h3 {
-        margin: 10px 0;
-    }
-
-    .tab {
-        width: 100%;
-        display: flex;
-        div {
-            cursor: pointer;
-            padding: 5px;
-            width: 48%;
-            text-align: center;
-            border: 1px solid $primary;
-        }
-        .active {
-            color: $secondary;
-            background: $primary;
-        }
+    .margin {
+        margin-top: 10px;
     }
 
     .block {
-        margin: 10px 0;
         display: flex;
         width: 100%;
 
@@ -31,8 +14,15 @@
             padding: 3px 0;
         }
 
+        .left {
+            margin-left: 3px;
+        }
+
+        .right {
+            margin-right: 3px;
+        }
+
         input {
-            margin: 0 3px;
             width: 50px;
             text-align: right;
         }

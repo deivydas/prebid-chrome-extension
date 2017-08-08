@@ -25,6 +25,7 @@ googletag.cmd.push(function() {
 });
 
 pbjs.que.push(function() {
+    ${state.config.randomized ? 'pbjs.setBidderSequence(\'random\');': ''}
     ${state.config.sendAllBids ? 'pbjs.enableSendAllBids();': ''}
     pbjs.setPriceGranularity(${state.config.granularity !== 'custom' ? `'${state.config.granularity}'` :'customGranularity'});
     pbjs.addAdUnits(adUnits);

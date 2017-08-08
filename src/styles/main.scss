@@ -5,6 +5,7 @@
 @import 'prebid';
 @import 'customGranularities';
 @import 'bidders';
+@import 'tab';
 @import './../../node_modules/highlight.js/styles/vs2015';
 
 html, body {
@@ -13,6 +14,10 @@ html, body {
     min-width: 300px;
     min-height: 400px;
     margin: 0;
+}
+
+h3 {
+    margin: 10px 0 5px 0;
 }
 
 .container {

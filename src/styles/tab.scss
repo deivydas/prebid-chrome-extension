@@ -1,0 +1,15 @@
+.tab {
+    width: 100%;
+    display: flex;
+    div {
+        cursor: pointer;
+        padding: 5px;
+        width: 48%;
+        text-align: center;
+        border: 1px solid $primary;
+    }
+    .active {
+        color: $secondary;
+        background: $primary;
+    }
+}

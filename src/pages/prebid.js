@@ -6,13 +6,14 @@ var prebid = {
     const {state} = vnode;
     state.granularities = constants.granularities;
     state.config = {
-      placements: m.route.param(),
+      placements: m.route.param('placements'),
       timeout: 2000,
       granularity: 'medium',
       granularities: [],
       sendAllBids: true,
       libraryUrl: constants.libraryUrl,
       async: true,
+      randomized: m.route.param('randomized'),
     };
   },
   view: (vnode) => {
@@ -75,9 +76,10 @@ var prebid = {
     return  m('.container', [
       m('.info', 'Please update prebid specific configuration.'),
       m('.prebid', [
+        m('h3', 'Timeout'),
         m('.block', [
-          m('.label', 'Timeout:'),
           m('input', {
+            class: 'right',
             type: 'number',
             value: state.config.timeout,
             onchange: (e) => {
@@ -101,10 +103,10 @@ var prebid = {
             },
           }, 'Sync'),
         ]),
-        m('.block', [
+        m('.block margin', [
           m('.label', 'URL:'),
           m('input', {
-            class: 'long',
+            class: 'long left',
             value: state.config.libraryUrl,
             onchange: (e) => {
               state.config.libraryUrl = e.target.value;
