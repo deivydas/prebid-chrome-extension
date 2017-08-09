@@ -316,7 +316,7 @@ const constants = {
       'publisherId',
     ],
   },{
-    'name': 'Rubicon',
+    'name': 'Rubicon Project',
     'code': 'rubicon',
     'parameters': [
       'accountId',
