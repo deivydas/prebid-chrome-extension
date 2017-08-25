@@ -21,8 +21,8 @@ var placements = {
   view: (vnode) => {
     const {state} = vnode;
     const build = () => {
+      state.sendMessage();
       if (!state.placements) {
-        state.sendMessage();
         return m('.loading', 'Loading...');
       }
 

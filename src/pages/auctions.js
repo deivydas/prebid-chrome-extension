@@ -18,8 +18,8 @@ var auctions = {
   view: (vnode) => {
     const {state} = vnode;
     const build = () => {
+      state.sendMessage();
       if (!state.bids) {
-        state.sendMessage();
         return m('.loading', 'Loading...');
       }
 
