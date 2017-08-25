@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+@import 'fonts';
 @import 'colors';
-@import 'menu';
+@import 'auctions';
 @import 'placements';
-@import 'prebid';
+@import 'settings';
 @import 'customGranularities';
 @import 'bidders';
 @import 'tab';
@@ -12,7 +12,6 @@ html, body {
     font-family: 'Roboto', sans-serif;
     width: 100%;
     min-width: 300px;
-    min-height: 400px;
     margin: 0;
 }
 
@@ -20,11 +19,15 @@ h3 {
     margin: 10px 0 5px 0;
 }
 
+body {
+    display: none;
+}
+
 .container {
     overflow: auto;
     background: $secondary;
     width: 90%;
-    margin: 50px auto 0 auto;
+    margin: 10px auto;
 }
 
 .info {
@@ -40,6 +43,11 @@ h3 {
     width: 40px;
     background: $primary;
     color: $secondary;
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 textarea {

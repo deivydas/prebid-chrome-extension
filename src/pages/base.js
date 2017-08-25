@@ -5,7 +5,20 @@ var base = {
     const {attrs} = vnode;
     return m('.app', [
       m('.menu', [
-        m('h2', attrs.title),
+        m('.tab white', [
+          m('div',{
+            class: attrs.auctionsTabActive ? 'active' : null,
+            onclick: () => {
+              m.route.set('/');
+            },
+          }, 'Prebid auctions'),
+          m('div',{
+            class: !attrs.auctionsTabActive ? 'active' : null,
+            onclick: () => {
+              m.route.set('/placements');
+            },
+          }, 'Create prebid config'),
+        ]),
       ]),
       m(attrs.container),
     ]);

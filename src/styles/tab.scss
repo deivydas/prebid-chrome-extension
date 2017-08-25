@@ -12,4 +12,17 @@
         color: $secondary;
         background: $primary;
     }
+
+    &.white {
+        div {
+            font-size: 14px;
+            border: 0;
+            color: $secondary;
+            background: $forth;
+        }
+        .active {
+            color: $primary;
+            background: $secondary;
+        }
+    }
 }

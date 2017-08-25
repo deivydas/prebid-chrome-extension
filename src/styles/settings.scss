@@ -1,6 +1,6 @@
 @import 'colors';
 
-.prebid {
+.settings {
 
     .margin {
         margin-top: 10px;
@@ -36,6 +36,7 @@
         width: 100%;
         display: flex;
         flex-flow: row wrap;
+        margin-bottom: 10px;
         .granularity {
             width: 33%;
             display: flex;

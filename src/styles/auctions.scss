@@ -1,0 +1,32 @@
+@import 'colors';
+   
+.auction {
+    border: 1px solid $primary;
+    padding: 5px;
+    margin: 5px;
+    
+    .placement {
+        font-size: 14px;
+        color: $primary;
+    }
+
+    .bidder {
+        display: flex;
+        width: 100%;
+        margin: 2px 0;
+        
+        .label {
+            width: 100px;
+            padding: 2px 0;
+        }
+
+        .winner {
+            font-family: 'RobotoRegular', sans-serif;
+            color: $forth;
+        }
+
+        .nobid {
+            color: $third;
+        }
+    }
+}

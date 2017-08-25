@@ -1,8 +1,9 @@
 import m from 'mithril';
 import base from './pages/base';
+import auctions from './pages/auctions';
 import placements from './pages/placements';
 import bidders from './pages/bidders';
-import prebid from './pages/prebid';
+import settings from './pages/settings';
 import output from './pages/output';
 
 require('./styles/main.scss');
@@ -13,7 +14,14 @@ const routes = () => {
     '/': {
       view: () => {
         return m(base, {
-          title: 'Placements',
+          container: auctions,
+          auctionsTabActive: true,
+        });
+      },
+    },
+    '/placements': {
+      view: () => {
+        return m(base, {
           container: placements,
         });
       },
@@ -21,28 +29,29 @@ const routes = () => {
     '/bidders': {
       view: () => {
         return m(base, {
-          title: 'Bidders',
           container: bidders,
         });
       },
     },
-    '/prebid': {
+    '/settings': {
       view: () => {
         return m(base, {
-          title: 'Prebid Config',
-          container: prebid,
+          container: settings,
         });
       },
     },
     '/output': {
       view: () => {
         return m(base, {
-          title: 'Generated Prebid Config',
           container: output,
         });
       },
     },
   });
+  // Chrome extension bug fix
+  setTimeout(() => {
+    document.body.style.display = 'block';
+  }, 80);
 };
 
 document.addEventListener('DOMContentLoaded', routes, false);

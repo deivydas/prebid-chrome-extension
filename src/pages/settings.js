@@ -1,7 +1,7 @@
 import m from 'mithril';
 import constants from '../constants';
 
-var prebid = {
+var settings = {
   oninit: (vnode) => {
     const {state} = vnode;
     state.granularities = constants.granularities;
@@ -74,8 +74,8 @@ var prebid = {
     };
 
     return  m('.container', [
-      m('.info', 'Please update prebid specific configuration.'),
-      m('.prebid', [
+      m('.info', 'Please update prebid settings.'),
+      m('.settings', [
         m('h3', 'Timeout'),
         m('.block', [
           m('input', {
@@ -155,4 +155,4 @@ var prebid = {
   },
 };
 
-export default prebid;
+export default settings;

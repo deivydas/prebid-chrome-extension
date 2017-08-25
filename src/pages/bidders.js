@@ -83,12 +83,14 @@ var bidders = {
         ])
       )),
       buildBidderParameters(),
-      m('.button',{
+      m(`.button ${state.selected.length <= 0 ? 'disabled': ''}`, {
         onclick: () => {
-          m.route.set('/prebid', {
-            placements: state.placements,
-            randomized: state.randomized,
-          });
+          if (state.selected.length > 0) {
+            m.route.set('/settings', {
+              placements: state.placements,
+              randomized: state.randomized,
+            });
+          }
         },
       }, 'Next'),
     ]);

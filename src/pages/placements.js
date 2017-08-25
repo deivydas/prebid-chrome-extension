@@ -4,18 +4,16 @@ import m from 'mithril';
 var placements = {
   oninit: (vnode) => {
     const {state} = vnode;
-    state.sent = false;
     state.selected = [];
 
     state.displayPlacements = (placements) => {
       state.placements = placements;
-      state.sent = true;
       m.redraw();
     };
 
     state.sendMessage = () => {
       chrome.tabs.query({active: true}, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, '', state.displayPlacements);
+        chrome.tabs.sendMessage(tabs[0].id, 'placements', state.displayPlacements);
       });
     };
 
@@ -44,11 +42,13 @@ var placements = {
               m('.label', placement.code),
             ])
           ),
-          m('.button',{
+          m(`.button ${state.selected.length <= 0 ? 'disabled': ''}`, {
             onclick: () => {
-              m.route.set('/bidders', {
-                placements: state.placements.filter((value, index) => state.selected.indexOf(index) > -1),
-              });
+              if (state.selected.length > 0) {
+                m.route.set('/bidders', {
+                  placements: state.placements.filter((value, index) => state.selected.indexOf(index) > -1),
+                });
+              }
             },
           }, 'Next'),
         ])
