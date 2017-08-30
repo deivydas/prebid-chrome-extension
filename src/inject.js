@@ -13,7 +13,7 @@ const prebidExtension = () => {
     }));
   }
 
-  if (typeof (pbjs) != 'undefined') {
+  if (typeof (pbjs) != 'undefined' && typeof (pbjs._bidsReceived) != 'undefined') {
     pbjs._bidsReceived.forEach((bid) => {
       if (result.bids[bid.adUnitCode]) {
         result.bids[bid.adUnitCode].push({
