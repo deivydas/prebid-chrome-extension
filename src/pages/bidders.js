@@ -5,7 +5,7 @@ var bidders = {
   oninit: (vnode) => {
     const {state} = vnode;
     state.placements = m.route.param('placements');
-    state.randomized = true;
+    state.sequence = 'random';
     state.selected = [];
     state.getParameters = (parameters) => {
       const result = {};
@@ -47,17 +47,17 @@ var bidders = {
       m('h3', 'Bidders sequence'),
       m('.tab', [
         m('div',{
-          class: state.randomized ? 'active' : null,
+          class: state.sequence === 'random' ? 'active' : null,
           onclick: () => {
-            state.randomized = true;
+            state.sequence = 'random';
           },
         }, 'Random'),
         m('div',{
-          class: !state.randomized ? 'active' : null,
+          class: state.sequence !== 'random' ? 'active' : null,
           onclick: () => {
-            state.randomized = false;
+            state.sequence = 'fixed';
           },
-        }, 'Static'),
+        }, 'Fixed'),
       ]),
       m('h3', 'Bidders'),
       m('.bidders', constants.bidders.map((bidder) => 
@@ -88,7 +88,7 @@ var bidders = {
           if (state.selected.length > 0) {
             m.route.set('/settings', {
               placements: state.placements,
-              randomized: state.randomized,
+              sequence: state.sequence,
             });
           }
         },

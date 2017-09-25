@@ -13,7 +13,7 @@ var settings = {
       sendAllBids: true,
       libraryUrl: constants.libraryUrl,
       async: true,
-      randomized: m.route.param('randomized'),
+      sequence: m.route.param('sequence'),
     };
   },
   view: (vnode) => {

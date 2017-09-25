@@ -25,9 +25,11 @@ googletag.cmd.push(function() {
 });
 
 pbjs.que.push(function() {
-    ${state.config.randomized ? 'pbjs.setBidderSequence(\'random\');': ''}
-    ${state.config.sendAllBids ? 'pbjs.enableSendAllBids();': ''}
-    pbjs.setPriceGranularity(${state.config.granularity !== 'custom' ? `'${state.config.granularity}'` :'customGranularity'});
+    pbjs.setConfig({
+        bidderSequence: '${state.config.sequence}',
+        enableSendAllBids: ${state.config.sendAllBids},
+        priceGranularity: ${state.config.granularity !== 'custom' ? `'${state.config.granularity}'` :'customGranularity'}
+    })
     pbjs.addAdUnits(adUnits);
     pbjs.requestBids({
         bidsBackHandler: sendAdserverRequest
