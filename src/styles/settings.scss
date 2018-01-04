@@ -12,6 +12,12 @@
 
         .label {
             padding: 3px 0;
+            &.length {
+                width: 110px;
+            }
+            &.calc {
+                width: calc(100% - 90px);
+            }
         }
 
         .left {
@@ -43,6 +49,13 @@
             .label {
                 padding: 2px;
             }
+        }
+    }
+
+    .server {
+        display: flex;
+        .label {
+            padding: 2px;
         }
     }
 }

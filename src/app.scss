@@ -1,12 +1,12 @@
-@import 'fonts';
-@import 'colors';
-@import 'auctions';
-@import 'placements';
-@import 'settings';
-@import 'customGranularities';
-@import 'bidders';
-@import 'tab';
-@import './../../node_modules/highlight.js/styles/vs2015';
+@import './styles/fonts';
+@import './styles/colors';
+@import './styles/auctions';
+@import './styles/placements';
+@import './styles/settings';
+@import './styles/customGranularities';
+@import './styles/bidders';
+@import './styles/tab';
+@import './../node_modules/highlight.js/styles/vs2015';
 
 html, body {
     font-family: 'Roboto', sans-serif;

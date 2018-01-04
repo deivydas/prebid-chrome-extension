@@ -6,6 +6,7 @@ var settings = {
     const {state} = vnode;
     state.granularities = constants.granularities;
     state.config = {
+      isS2SConfigRequired: false,
       placements: m.route.param('placements'),
       timeout: 2000,
       granularity: 'medium',
@@ -14,6 +15,7 @@ var settings = {
       libraryUrl: constants.libraryUrl,
       async: true,
       sequence: m.route.param('sequence'),
+      s2sConfig: {},
     };
   },
   view: (vnode) => {
@@ -76,8 +78,8 @@ var settings = {
     return  m('.container', [
       m('.info', 'Please update prebid settings.'),
       m('.settings', [
-        m('h3', 'Timeout'),
-        m('.block', [
+        m('.block margin', [
+          m('.label', 'Timeout: '),
           m('input', {
             class: 'right',
             type: 'number',
@@ -87,6 +89,18 @@ var settings = {
             },
           }),
           m('.label', 'ms'),
+        ]),
+        m('h3', 'Server To Server'),
+        m('.server', [
+          m('input', {
+            type: 'checkbox',
+            value: state.config.isS2SConfigRequired,
+            checked: state.config.isS2SConfigRequired,
+            onchange: () => {
+              state.config.isS2SConfigRequired = !state.config.isS2SConfigRequired;
+            },
+          }),
+          m('.label', 'Add Server to Server config'),
         ]),
         m('h3', 'Library'),
         m('.tab', [
@@ -148,7 +162,7 @@ var settings = {
       ]),
       m('.button',{
         onclick: () => {
-          m.route.set('/output', state.config);
+          m.route.set(state.config.isS2SConfigRequired ? '/server' : '/output', state.config);
         },
       }, 'Next'),
     ]);

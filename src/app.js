@@ -4,9 +4,10 @@ import auctions from './pages/auctions';
 import placements from './pages/placements';
 import bidders from './pages/bidders';
 import settings from './pages/settings';
+import server from './pages/server';
 import output from './pages/output';
 
-require('./styles/main.scss');
+require('./app.scss');
 
 const routes = () => {
   m.route.prefix('#');
@@ -37,6 +38,13 @@ const routes = () => {
       view: () => {
         return m(base, {
           container: settings,
+        });
+      },
+    },
+    '/server': {
+      view: () => {
+        return m(base, {
+          container: server,
         });
       },
     },

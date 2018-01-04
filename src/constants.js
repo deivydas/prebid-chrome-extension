@@ -1,6 +1,33 @@
 const constants = {
   granularities: ['low','medium','high','auto','dense','custom'],
   libraryUrl: '//acdn.adnxs.com/prebid/not-for-prod/prebid.js',
+  server2ServerEndPoint: 'https://prebid.adnxs.com/pbs/v1/auction',
+  server2ServerSyncEndPoint: 'https://prebid.adnxs.com/pbs/v1/cookie_sync',
+  server2ServerBidders: [{
+    'name': 'AppNexus',
+    'code': 'appnexus',
+  },{
+    'name': 'Conversant',
+    'code': 'conversant',
+  },{
+    'name': 'Facebook',
+    'code': 'facebook',
+  },{
+    'name': 'Index Exchange',
+    'code': 'index',
+  },{
+    'name': 'Lifestreet',
+    'code': 'lifestreet',
+  },{
+    'name': 'Pubmatic',
+    'code': 'pubmatic',
+  },{
+    'name': 'PulsePoint',
+    'code': 'pulsepoint',
+  },{
+    'name': 'Rubicon Project',
+    'code': 'rubicon',
+  }],
   bidders: [{
     'name': '152Media',
     'code': 'oftmedia',
