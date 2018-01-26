@@ -1,37 +1,43 @@
 /* global googletag, pbjs */
+var prebidExtensionResult = {
+  adUnits: [],
+  bids: {},
+};
 const prebidExtension = () => {
-  var result = {
-    adUnits: [],
-    bids: {},
-  };
 
   if (typeof (googletag) != 'undefined' && typeof googletag.pubads == 'function') {
     var slots = googletag.pubads().getSlots();
-    result.adUnits = slots.map((slot) => ({
+    prebidExtensionResult.adUnits = slots.map((slot) => ({
       code: slot.getSlotElementId(),
       sizes: slot.getSizes().map((size) => ([size.l, size.j])),
     }));
   }
 
-  if (typeof (pbjs) != 'undefined' && typeof (pbjs._bidsReceived) != 'undefined') {
-    pbjs._bidsReceived.forEach((bid) => {
-      if (result.bids[bid.adUnitCode]) {
-        result.bids[bid.adUnitCode].push({
+  if (typeof (pbjs) != 'undefined') {
+    const responses = pbjs.getBidResponses();
+    const winners = pbjs.getAllWinningBids();
+    Object.keys(responses).forEach((key) => {
+      const {bids} = responses[key];
+      bids.forEach((bid) => {
+        const bidderInfo = {
           bidder: bid.bidder,
           cpm: bid.cpm,
-          winner: pbjs._winningBids.indexOf(bid) > -1,
-        });
-      } else {
-        result.bids[bid.adUnitCode] = [{
-          bidder: bid.bidder,
-          cpm: bid.cpm,
-          winner: pbjs._winningBids.indexOf(bid) > -1,
-        }];
-      }
+          winner: winners.indexOf(bid) > -1,
+        };
+        if (prebidExtensionResult.bids[key]) {
+          const index = prebidExtensionResult.bids[key].findIndex(bid => bid.bidder === bidderInfo.bidder && bid.cpm === bidderInfo.cpm);
+          if (index === -1) {
+            prebidExtensionResult.bids[key].push(bidderInfo);
+          } else {
+            prebidExtensionResult.bids[key][index] = bidderInfo;
+          }
+        } else {
+          prebidExtensionResult.bids[key] = [bidderInfo];
+        }
+      });
     });
   }
-
-  window.postMessage(result, '*');
+  window.postMessage(prebidExtensionResult, '*');
 };
 
 prebidExtension();
