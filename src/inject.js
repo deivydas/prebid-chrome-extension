@@ -13,7 +13,7 @@ const prebidExtension = () => {
     }));
   }
 
-  if (typeof (pbjs) != 'undefined') {
+  if (pbjs && pbjs.getBidResponses && pbjs.getAllWinningBids) {
     const responses = pbjs.getBidResponses();
     const winners = pbjs.getAllWinningBids();
     Object.keys(responses).forEach((key) => {

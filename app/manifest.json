@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Prebid helper",
   "description": "This extension helps you create a prebid config for all DFP placements or to check all the information about auctions which ran",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "browser_action": {
     "default_popup": "index.html"
   },
