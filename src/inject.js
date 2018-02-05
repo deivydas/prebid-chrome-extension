@@ -5,7 +5,7 @@ var prebidExtensionResult = {
 };
 const prebidExtension = () => {
 
-  if (typeof (googletag) != 'undefined' && typeof googletag.pubads == 'function') {
+  if (typeof googletag != 'undefined' && typeof googletag.pubads == 'function') {
     var slots = googletag.pubads().getSlots();
     prebidExtensionResult.adUnits = slots.map((slot) => ({
       code: slot.getSlotElementId(),
@@ -13,7 +13,7 @@ const prebidExtension = () => {
     }));
   }
 
-  if (pbjs && pbjs.getBidResponses && pbjs.getAllWinningBids) {
+  if (typeof pbjs != 'undefined' && typeof pbjs.getBidResponses == 'function' && typeof pbjs.getAllWinningBids == 'function') {
     const responses = pbjs.getBidResponses();
     const winners = pbjs.getAllWinningBids();
     Object.keys(responses).forEach((key) => {
