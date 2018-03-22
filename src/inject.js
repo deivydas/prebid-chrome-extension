@@ -41,4 +41,4 @@ const prebidExtension = () => {
 };
 
 prebidExtension();
-window.setInterval(prebidExtension, 1000);
+window.setInterval(prebidExtension, 10);
