@@ -33,7 +33,7 @@ var auctions = {
               m(`.label ${bidder.winner ? 'winner' : bidder.cpm <= 0 ? 'nobid': ''}`, bidder.cpm > 0 ? bidder.cpm.toFixed(2) : 'No bid'),
             ])
           )),
-        ])) :  m('.nothing', 'Prebid is not implemented on this page');
+        ])) :  m('.nothing', 'Prebid is not implemented on this page or none of the bidders responded with valid bids');
     };
     
     return  m('.container', [
