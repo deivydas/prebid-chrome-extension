@@ -10,7 +10,6 @@ import output from './pages/output';
 require('./app.scss');
 
 const routes = () => {
-  m.route.prefix('#');
   m.route(document.body, '/', {
     '/': {
       view: () => {

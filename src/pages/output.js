@@ -52,7 +52,6 @@ pbjs.que = pbjs.que || [];${state.buildCustomGranularity()}
 
 </script>
 <script>
-var PREBID_TIMEOUT = ${state.config.timeout};
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
 googletag.cmd.push(function() {
@@ -67,6 +66,7 @@ pbjs.que.push(function() {
     });
     pbjs.addAdUnits(adUnits);
     pbjs.requestBids({
+        timeout: ${state.config.timeout},
         bidsBackHandler: sendAdserverRequest
     });
 });
@@ -81,11 +81,6 @@ function sendAdserverRequest() {
         });
     });
 }
-
-setTimeout(function() {
-    sendAdserverRequest();
-}, PREBID_TIMEOUT);
-
 </script>
 <!-- Make sure this is inserted before your GPT tag -->`;
   },

@@ -2,7 +2,6 @@
 .DS_STORE
 .idea
 *.orig
-package-lock.json
 node_modules/
 app/scripts/
 app/styles/

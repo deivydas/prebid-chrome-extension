@@ -1,11 +1,11 @@
 {
   "name": "prebid-chrome-extension",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack",
-    "build": "webpack -p"
+    "start": "webpack --watch",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -14,18 +14,19 @@
   "author": "Deivydas Šabaras",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "*",
-    "eslint-loader": "*",
+    "@babel/core": "*",
     "babel-eslint": "*",
     "babel-loader": "*",
-    "babel-preset-es2015": "*",
-    "babel-core": "*",
+    "babel-preset-env": "*",
     "css-loader": "*",
-    "style-loader": "*",
-    "sass-loader": "*",
+    "eslint": "*",
+    "eslint-loader": "*",
     "node-sass": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
     "webpack": "*",
-    "extract-text-webpack-plugin": "*",
+    "webpack-cli": "*",
+    "mini-css-extract-plugin": "*",
     "highlight.js": "*"
   },
   "dependencies": {

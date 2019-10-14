@@ -1,4 +1,5 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 process.noDeprecation = true;
 module.exports = {
@@ -6,43 +7,37 @@ module.exports = {
     rules: [
       {
         test: /\.(css|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
-        }),
+        use: [{
+          loader: MiniCssExtractPlugin.loader,
+        },'css-loader', 'sass-loader'],
       },
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /(node_modules|build)/,
-        loader: 'babel-loader',    
-        query: {
-          presets: [
-            ['es2015', {
-              'modules': false,
-            }],
-          ],
-        },
+        loader: 'babel-loader',
       },
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         enforce: 'pre',
         exclude: /(node_modules|build)/,
         use: 'eslint-loader',    
       },
     ],
   },
+  mode: 'development',
   entry: {
-    'app/scripts/app':'./src/app.js',
-    'app/scripts/content-script':'./src/content-script.js',
-    'app/scripts/inject':'./src/inject.js',
+    'scripts/app':'./src/app.js',
+    'scripts/content-script':'./src/content-script.js',
+    'scripts/inject':'./src/inject.js',
   },
   output: {
-    filename: './[name].js',
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'app'),
   },
   watch: true,
   plugins: [
-    new ExtractTextPlugin({
-      filename: './app/styles/app.css',
+    new MiniCssExtractPlugin({
+      filename: 'styles/app.css',
     }),
   ],
 };
